@@ -329,5 +329,24 @@ html {
   </footer>
 
   <script>
-    // Optional: Add JavaScript for additional interactivity if needed
+    document.querySelector(".contact-form").addEventListener("submit", function (e) {
+  e.preventDefault();
+  const form = e.target;
+  const formData = new FormData(form);
+
+  fetch(form.action, {
+    method: form.method,
+    body: formData,
+    headers: {
+      Accept: "application/json"
+    }
+  }).then(response => {
+    if (response.ok) {
+      document.getElementById("formStatus").textContent = "Thanks! Your message has been sent.";
+      form.reset();
+    } else {
+      document.getElementById("formStatus").textContent = "Oops! Something went wrong.";
+    }
+  });
+});// Optional: Add JavaScript for additional interactivity if needed
   </script>
