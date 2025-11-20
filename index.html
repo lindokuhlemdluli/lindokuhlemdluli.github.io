@@ -305,11 +305,10 @@ html {
         </div>
       </div>
     </div>
-
-<!-- Contact Section -->
+<!-- Contact ID -->
 <section id="contact">
   <h2>Contact Me</h2>
-  <form class="contact-form" action="https://formspree.io/f/xovrpevr" method="POST">
+  <form id="contactForm" action="https://formspree.io/f/xovrpevr" method="POST">
     <label for="name">👤 Name</label>
     <input type="text" id="name" name="name" placeholder="Your Name" required />
 
@@ -321,6 +320,7 @@ html {
 
     <button type="submit">Send Message</button>
   </form>
+
   <div id="formStatus" style="margin-top: 15px; color: #00ffcc;"></div>
 </section>
   <!-- Footer -->
@@ -329,24 +329,34 @@ html {
   </footer>
 
   <script>
-    document.querySelector(".contact-form").addEventListener("submit", function (e) {
-  e.preventDefault();
-  const form = e.target;
-  const formData = new FormData(form);
+  const form = document.getElementById("contactForm");
+  const status = document.getElementById("formStatus");
 
-  fetch(form.action, {
-    method: form.method,
-    body: formData,
-    headers: {
-      Accept: "application/json"
-    }
-  }).then(response => {
-    if (response.ok) {
-      document.getElementById("formStatus").textContent = "Thanks! Your message has been sent.";
-      form.reset();
-    } else {
-      document.getElementById("formStatus").textContent = "Oops! Something went wrong.";
-    }
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    const formData = new FormData(form);
+
+    fetch(form.action, {
+      method: form.method,
+      body: formData,
+      headers: {
+        Accept: "application/json"
+      }
+    })
+    .then(response => {
+      if (response.ok) {
+        status.textContent = "✅ Thanks! Your message has been sent.";
+        form.reset();
+      } else {
+        status.textContent = "❌ Something went wrong. Please try again.";
+      }
+    })
+    .catch(error => {
+      status.textContent = "⚠️ Network error. Please check your connection.";
+      console.error("Form error:", error);
+    });
   });
-});// Optional: Add JavaScript for additional interactivity if needed
-  </script>
+</script>
+</body>
+</html>
+
