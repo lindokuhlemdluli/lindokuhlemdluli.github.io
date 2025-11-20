@@ -2,44 +2,277 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Lindokuhle Mdluli | IT Support & Web Dev</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lindokuhle Mdluli | Portfolio</title>
+  <style>
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+html, body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+    body {
+      background: #0d0d0d;
+      color: #ffffff;
+      line-height: 1.6;
+    }
+
+    .hero-banner {
+      position: relative;
+      width: 100%;
+      height: 300px;
+      overflow: hidden;
+    }
+
+    .banner-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.75;
+    }
+
+    .hero-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #ffffff;
+      text-align: center;
+      text-shadow: 1px 1px 4px #000;
+    }
+
+    header {
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0, 0, 0, 0.5);
+      padding: 20px 40px;
+      border-radius: 8px;
+      text-align: center;
+      z-index: 10;
+      box-shadow: 0 0 10px rgba(0, 170, 255, 0.5);
+
+    }
+
+    header h1 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    nav a {
+      margin: 0 15px;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 1rem;
+    }
+
+    nav a:hover {
+      color: #00aaff;
+    }
+
+    section {
+      padding: 60px 0%;
+      border-bottom: 1px solid #222222;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      font-size: 1.8rem;
+      color: #00aaff;
+    }
+
+
+
+    .skills-list,
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .card {
+      background: #1a1a1a;
+      padding: 20px;
+      border-radius: 8px;
+      transition: transform 0.3s ease, border 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border: 1px solid #00aaff;
+    }
+
+    .flip-card {
+      background: transparent;
+      width: 100%;
+      height: 120px;
+      perspective: 1000px;
+    }
+
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+      cursor: pointer;
+    }
+
+    .flip-card:hover .flip-card-inner,
+    .flip-card.flipped .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .flip-card-front,
+    .flip-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      padding: 20px;
+      border-radius: 8px;
+      backface-visibility: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .flip-card-front {
+      background: #1a1a1a;
+      color: #ffffff;
+    }
+
+    .flip-card-back {
+      background: #00aaff;
+      color: #000;
+      transform: rotateY(180deg);
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 12px;
+      margin: 8px 0;
+      border-radius: 4px;
+      border: none;
+      background: #222222;
+      color: #ffffff;
+    }
+
+    .contact-form button {
+      padding: 10px 20px;
+      background: #00aaff;
+      color: #000;
+      border: none;
+      cursor: pointer;
+      border-radius: 4px;
+      margin-top: 10px;
+    }
+
+    .contact-form button:hover {
+      background: #0088cc;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #111111;
+      margin-top: 30px;
+    }
+  </style>
 </head>
 <body>
+
+  <!-- Banner Section with Header Inside -->
+<section class="hero-banner">
+  <img src="images/banner.jpg" alt="Tech-themed banner" class="banner-img">
   <header>
-    <h1>👋 Hi, I'm Lindokuhle</h1>
-    <p>IT Support Specialist | BSc IT Candidate | Web Dev Enthusiast</p>
+    <h1>Lindokuhle Mdluli</h1>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
   </header>
+</section>
 
-  <nav>
-    <a href="#about">About</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
-  </nav>
+  <!-- About Section -->
+  <section id="about">
+    <h2>About Me</h2>
+    
+    <p>
+      I'm an IT Support Specialist and BSc IT candidate with over a decade of experience resolving complex technical issues across operating systems, networks, and VOIP systems. I thrive on clear communication, secure development, and empowering others through technology and training. My strengths lie in methodical troubleshooting, empathetic client support, and building practical tools—from password managers to GUI calculators. I'm passionate about using technology to deliver value, build trust, and uplift others—professionally, personally, and spiritually.
+    </p>
+  </section>
 
-  <main>
-    <section id="about">
-      <h2>About Me</h2>
-      <p>I specialize in remote technical support, network systems, and building interactive web experiences.</p>
-    </section>
+  <!-- Skills Section -->
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skills-list">
+      <div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front">Networking</div><div class="flip-card-back">Design, configure, and troubleshoot secure network systems and protocols.</div></div></div>
+      <div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front">Windows Server</div><div class="flip-card-back">Manage server roles, user permissions, and network services in enterprise environments.</div></div></div>
+      <div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front">Technical Support</div><div class="flip-card-back">Diagnose and resolve hardware, software, and connectivity issues with empathy and precision.</div></div></div>
+      <div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front">Python</div><div class="flip-card-back">Build secure CLI tools, automate tasks, and develop GUI applications using Tkinter.</div></div></div>
+      <div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front">HTML</div><div class="flip-card-back">Structure responsive web pages with semantic markup and clean layout foundations.</div></div></div>
+      <div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front">VoIP Systems</div><div class="flip-card-back">Configure and support voice-over-IP technologies for clear, reliable communication.</div></div></div>
+      <div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front">Troubleshooting</div><div class="flip-card-back">Apply methodical logic to identify root causes and implement lasting technical solutions.</div></div></div>
+    </div>
+  </section>
 
-    <section id="projects">
-      <h2>Projects</h2>
-      <ul>
-        <li><a href="https://github.com/lindokuhlemdluli">GitHub Repositories</a></li>
-        <li><a href="https://lindokuhlemdluli.github.io">Portfolio Site</a></li>
-      </ul>
-    </section>
+  <!-- Projects Section -->
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="projects">
+      <div class="card">
+        <a href="https://github.com/lindokuhlemdluli/Interactive-Task-Cards" target="_blank" style="text-decoration: none; color: inherit;">
+            <h3>🗂️ Interactive Task Cards</h3>
+        </a>
+        <p>Dynamic JavaScript cards with editable fields and real-time summaries—built to demonstrate UI logic and interactivity.</p>
+      </div>
+      <div class="card">
+       <a href="https://github.com/lindokuhlemdluli/Calculator-" target="_blank" style="text-decoration: none; color: inherit;">
+            <h3>🧮 Tkinter Calculator</h3>
+        </a>
+        <p>A user-friendly GUI calculator with full operator support, built for hands-on Python practice and refinement.</p>
+      </div>
+      <div class="card">
+        <a href="https://github.com/lindokuhlemdluli/Portfolio-Site" target="_blank" style="text-decoration: none; color: inherit;">
+            <h3>🌐 Personal Portfolio Website</h3>
+        </a>
+        <p>This responsive site showcases my technical skills, projects, and professional identity—designed and coded from scratch.</p>
+        </div>
+      </div>
+    </div>
 
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>Email: <a href="mailto:your@email.com">your@email.com</a></p>
-    </section>
-  </main>
+<!-- Contact Section -->
+<section id="contact">
+  <h2>Contact Me</h2>
+  <form class="contact-form" action="https://formspree.io/f/your-form-id" method="POST">
+    <input type="text" name="name" placeholder="Your Name" required />
+    <input type="email" name="email" placeholder="Your Email" required />
+    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+</section>
 
+  <!-- Footer -->
   <footer>
-    <p>&copy; 2025 Lindokuhle Mdluli</p>
+    <p>&copy; 2024 Lindokuhle Mdluli. All rights reserved.</p>
   </footer>
-</body>
-</html>
+
+  <script>
+    // Optional: Add JavaScript for additional interactivity if needed
+  </script>
