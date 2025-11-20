@@ -366,6 +366,21 @@ html {
     const form = document.getElementById("contactForm");
     const status = document.getElementById("formStatus");
 
+    function showStatusMessage(message, isSuccess = true) {
+      status.textContent = message;
+      status.style.color = isSuccess ? "#00ffcc" : "#ff4444";
+      status.classList.add("show");
+
+      if (isSuccess) {
+        form.classList.add("disabled");
+      }
+
+      setTimeout(() => {
+        status.classList.remove("show");
+        status.textContent = "";
+      }, 5000);
+    }
+
     form.addEventListener("submit", function (e) {
       e.preventDefault();
       const formData = new FormData(form);
@@ -379,14 +394,14 @@ html {
       })
       .then(response => {
         if (response.ok) {
-          status.textContent = "✅ Thanks! Your message has been sent.";
+          showStatusMessage("✅ Thanks! Your message has been sent.");
           form.reset();
         } else {
-          status.textContent = "❌ Something went wrong. Please try again.";
+          showStatusMessage("❌ Something went wrong. Please try again.", false);
         }
       })
       .catch(error => {
-        status.textContent = "⚠️ Network error. Please check your connection.";
+        showStatusMessage("⚠️ Network error. Please check your connection.", false);
         console.error("Form error:", error);
       });
     });
